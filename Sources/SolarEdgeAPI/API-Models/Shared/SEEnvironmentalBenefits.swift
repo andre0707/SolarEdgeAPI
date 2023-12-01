@@ -20,7 +20,7 @@ public struct SEEnvironmentalBenefits: Codable {
 extension SEEnvironmentalBenefits {
     /// Saved gas emissions
     public struct SESavedGasEmission: Codable {
-        /// The uni if the values
+        /// The unit of the values
         public let units: String
         /// CO2 saved
         public let co2: Double
