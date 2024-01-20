@@ -157,4 +157,43 @@ final class SolarEdgeMonitoringAPITests: XCTestCase {
         
         //XCTAssert(site.startDate != nil, "Start date is not available")
     }
+    
+    
+    func test_dataReading() async throws {
+        let (_minimumDate, _maximumDate) = try await SolarEdgeMonitoringAPI.siteData(for: siteId, apiKey: apiKey)
+        guard let minimumDate = _minimumDate,
+              let maximumDate = _maximumDate
+        else { return }
+        
+        
+        var data = [Int : [Double]]()
+        for month in 1 ... 12 {
+            for day in 1 ... 31 {
+                let dateComponents = DateComponents(year: 2023, month: month, day: day, hour: 0, minute: 0, second: 0)
+                guard let startDate = Calendar.current.date(from: dateComponents),
+                      startDate >= minimumDate,
+                      startDate <= maximumDate,
+                      let endDate = Calendar.current.date(byAdding: DateComponents(day: 1), to: startDate)
+                else { continue }
+                
+                
+                let energy = try await SolarEdgeMonitoringAPI.totalEnergy(for: siteId, startDate: startDate, endDate: endDate, apiKey: apiKey)
+                data[day, default: []].append(energy.energy)
+            }
+        }
+        
+        print(data)
+    }
+    
+    func test_total() async throws {
+        
+        for month in 4 ... 9 {
+            let dateComponents = DateComponents(year: 2023, month: month, day: 1, hour: 0, minute: 0, second: 0)
+            guard let startDate = Calendar.current.date(from: dateComponents) else { continue }
+            let endDate = startDate.endOfTheMonth
+            
+            let totalEnergy = try await SolarEdgeMonitoringAPI.totalEnergy(for: siteId, startDate: startDate, endDate: endDate, apiKey: apiKey)
+            print("month \(month): \(totalEnergy.energy)")
+        }
+    }
 }

@@ -53,8 +53,11 @@ extension SEMEnergy.TimePeriodDataPoint: CustomStringConvertible {
     public var description: String {
         let unit = Unit(symbol: self.unit)
         
-        let measurement = Measurement(value: energy, unit: unit)
-        
-        return MeasurementFormatter().string(from: measurement)
+#if os(Linux)
+        if unit.symbol == "Wh" { return String(format: "%.2fk%@", energy / 1000, unit.symbol) }
+        return String(format: "%.2f%@", energy, unit.symbol)
+#else
+        return MeasurementFormatter().string(from: Measurement(value: energy, unit: unit))
+#endif
     }
 }

@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
 
 /// The user agent which is used
 fileprivate let userAgent = "SolarEdge/5 CFNetwork/1410.0.3 Darwin/22.6.0"
@@ -138,7 +141,7 @@ public extension SolarEdgeAPI {
         
         let request = try urlRequest(url: url, userAgent: userAgent, contentType: .urlEncoded, httpMethode: .post, body: bodyData)
         
-        let (data, urlResponse) = try await URLSession.shared.data(for: request, delegate: nil)
+        let (data, urlResponse) = try await URLSession.shared.asyncData(for: request, delegate: nil)
         
         guard let response = urlResponse as? HTTPURLResponse else { throw SolarEdgeAPIError.response }
         
@@ -173,7 +176,7 @@ public extension SolarEdgeAPI {
         
         let request = urlRequest(url: url, userAgent: userAgent, cookie: cookie,  csrfToken: csrfToken)
         
-        let (data, urlResponse) = try await URLSession.shared.data(for: request, delegate: nil)
+        let (data, urlResponse) = try await URLSession.shared.asyncData(for: request, delegate: nil)
         
         guard let response = urlResponse as? HTTPURLResponse else { throw SolarEdgeAPIError.response }
         
@@ -210,7 +213,7 @@ public extension SolarEdgeAPI {
         
         let request = urlRequest(url: url, userAgent: userAgent, cookie: cookie, csrfToken: csrfToken)
         
-        let (data, urlResponse) = try await URLSession.shared.data(for: request, delegate: nil)
+        let (data, urlResponse) = try await URLSession.shared.asyncData(for: request, delegate: nil)
         
         guard let response = urlResponse as? HTTPURLResponse else { throw SolarEdgeAPIError.response }
         
@@ -240,7 +243,7 @@ public extension SolarEdgeAPI {
         
         let request = urlRequest(url: url, userAgent: userAgent, cookie: cookie, csrfToken: csrfToken)
         
-        let (data, urlResponse) = try await URLSession.shared.data(for: request, delegate: nil)
+        let (data, urlResponse) = try await URLSession.shared.asyncData(for: request, delegate: nil)
         
         guard let response = urlResponse as? HTTPURLResponse else { throw SolarEdgeAPIError.response }
         
@@ -297,7 +300,7 @@ public extension SolarEdgeAPI {
         
         let request = urlRequest(url: url, userAgent: userAgent, cookie: cookie, csrfToken: csrfToken)
         
-        let (data, urlResponse) = try await URLSession.shared.data(for: request, delegate: nil)
+        let (data, urlResponse) = try await URLSession.shared.asyncData(for: request, delegate: nil)
         
         guard let response = urlResponse as? HTTPURLResponse else { throw SolarEdgeAPIError.response }
         
@@ -350,7 +353,7 @@ public extension SolarEdgeAPI {
         
         let request = urlRequest(url: url, userAgent: userAgent, cookie: cookie, csrfToken: csrfToken)
         
-        let (data, urlResponse) = try await URLSession.shared.data(for: request, delegate: nil)
+        let (data, urlResponse) = try await URLSession.shared.asyncData(for: request, delegate: nil)
         
         guard let response = urlResponse as? HTTPURLResponse else { throw SolarEdgeAPIError.response }
         
@@ -395,7 +398,7 @@ public extension SolarEdgeAPI {
         
         let request = urlRequest(url: url, userAgent: userAgent, cookie: cookie, csrfToken: csrfToken)
         
-        let (data, urlResponse) = try await URLSession.shared.data(for: request, delegate: nil)
+        let (data, urlResponse) = try await URLSession.shared.asyncData(for: request, delegate: nil)
         
         guard let response = urlResponse as? HTTPURLResponse else { throw SolarEdgeAPIError.response }
         
@@ -426,7 +429,7 @@ public extension SolarEdgeAPI {
         
         let request = urlRequest(url: url, userAgent: userAgent, cookie: cookie, csrfToken: csrfToken)
         
-        let (data, urlResponse) = try await URLSession.shared.data(for: request, delegate: nil)
+        let (data, urlResponse) = try await URLSession.shared.asyncData(for: request, delegate: nil)
         
         guard let response = urlResponse as? HTTPURLResponse else { throw SolarEdgeAPIError.response }
         
@@ -467,7 +470,7 @@ public extension SolarEdgeAPI {
         
         let request = try urlRequest(url: url, userAgent: userAgent, cookie: cookie, csrfToken: csrfToken, httpMethode: .post, body: bodyData)
         
-        let (data, urlResponse) = try await URLSession.shared.data(for: request, delegate: nil)
+        let (data, urlResponse) = try await URLSession.shared.asyncData(for: request, delegate: nil)
         
         guard let response = urlResponse as? HTTPURLResponse else { throw SolarEdgeAPIError.response }
         
@@ -498,7 +501,7 @@ public extension SolarEdgeAPI {
         
         let request = urlRequest(url: url, userAgent: userAgent, cookie: cookie, csrfToken: csrfToken)
         
-        let (data, urlResponse) = try await URLSession.shared.data(for: request, delegate: nil)
+        let (data, urlResponse) = try await URLSession.shared.asyncData(for: request, delegate: nil)
         
         guard let response = urlResponse as? HTTPURLResponse else { throw SolarEdgeAPIError.response }
         
@@ -530,7 +533,7 @@ public extension SolarEdgeAPI {
         
         let request = urlRequest(url: url, userAgent: userAgent, cookie: cookie, csrfToken: csrfToken)
         
-        let (data, urlResponse) = try await URLSession.shared.data(for: request, delegate: nil)
+        let (data, urlResponse) = try await URLSession.shared.asyncData(for: request, delegate: nil)
         
         guard let response = urlResponse as? HTTPURLResponse else { throw SolarEdgeAPIError.response }
         

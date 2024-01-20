@@ -5,6 +5,9 @@
 //
 
 import Foundation
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
 
 /// The user agent which is used
 fileprivate let userAgent = "SolarEdge Monitoring API for Swift"
@@ -49,7 +52,7 @@ public extension SolarEdgeMonitoringAPI {
         var request = URLRequest(url: url)
         request.addValue(userAgent, forHTTPHeaderField: "User-Agent")
         
-        let (data, urlResponse) = try await URLSession.shared.data(for: request, delegate: nil)
+        let (data, urlResponse) = try await URLSession.shared.asyncData(for: request, delegate: nil)
         
         guard let response = urlResponse as? HTTPURLResponse else { throw SolarEdgeAPIError.response }
         
@@ -86,7 +89,7 @@ public extension SolarEdgeMonitoringAPI {
         var request = URLRequest(url: url)
         request.addValue(userAgent, forHTTPHeaderField: "User-Agent")
         
-        let (data, urlResponse) = try await URLSession.shared.data(for: request, delegate: nil)
+        let (data, urlResponse) = try await URLSession.shared.asyncData(for: request, delegate: nil)
         
         guard let response = urlResponse as? HTTPURLResponse else { throw SolarEdgeAPIError.response }
         
@@ -123,7 +126,7 @@ public extension SolarEdgeMonitoringAPI {
         var request = URLRequest(url: url)
         request.addValue(userAgent, forHTTPHeaderField: "User-Agent")
         
-        let (data, urlResponse) = try await URLSession.shared.data(for: request, delegate: nil)
+        let (data, urlResponse) = try await URLSession.shared.asyncData(for: request, delegate: nil)
         
         guard let response = urlResponse as? HTTPURLResponse else { throw SolarEdgeAPIError.response }
         
@@ -190,7 +193,7 @@ public extension SolarEdgeMonitoringAPI {
         var request = URLRequest(url: url)
         request.addValue(userAgent, forHTTPHeaderField: "User-Agent")
         
-        let (data, urlResponse) = try await URLSession.shared.data(for: request, delegate: nil)
+        let (data, urlResponse) = try await URLSession.shared.asyncData(for: request, delegate: nil)
         
         guard let response = urlResponse as? HTTPURLResponse else { throw SolarEdgeAPIError.response }
         
@@ -231,7 +234,7 @@ public extension SolarEdgeMonitoringAPI {
         var request = URLRequest(url: url)
         request.addValue(userAgent, forHTTPHeaderField: "User-Agent")
         
-        let (data, urlResponse) = try await URLSession.shared.data(for: request, delegate: nil)
+        let (data, urlResponse) = try await URLSession.shared.asyncData(for: request, delegate: nil)
         
         guard let response = urlResponse as? HTTPURLResponse else { throw SolarEdgeAPIError.response }
         
@@ -272,7 +275,7 @@ public extension SolarEdgeMonitoringAPI {
         var request = URLRequest(url: url)
         request.addValue(userAgent, forHTTPHeaderField: "User-Agent")
         
-        let (data, urlResponse) = try await URLSession.shared.data(for: request, delegate: nil)
+        let (data, urlResponse) = try await URLSession.shared.asyncData(for: request, delegate: nil)
         
         guard let response = urlResponse as? HTTPURLResponse else { throw SolarEdgeAPIError.response }
         
@@ -309,7 +312,7 @@ public extension SolarEdgeMonitoringAPI {
         var request = URLRequest(url: url)
         request.addValue(userAgent, forHTTPHeaderField: "User-Agent")
         
-        let (data, urlResponse) = try await URLSession.shared.data(for: request, delegate: nil)
+        let (data, urlResponse) = try await URLSession.shared.asyncData(for: request, delegate: nil)
         
         guard let response = urlResponse as? HTTPURLResponse else { throw SolarEdgeAPIError.response }
         
@@ -354,7 +357,7 @@ public extension SolarEdgeMonitoringAPI {
         var request = URLRequest(url: url)
         request.addValue(userAgent, forHTTPHeaderField: "User-Agent")
         
-        let (data, urlResponse) = try await URLSession.shared.data(for: request, delegate: nil)
+        let (data, urlResponse) = try await URLSession.shared.asyncData(for: request, delegate: nil)
         
         guard let response = urlResponse as? HTTPURLResponse else { throw SolarEdgeAPIError.response }
         
@@ -401,7 +404,7 @@ public extension SolarEdgeMonitoringAPI {
         var request = URLRequest(url: url)
         request.addValue(userAgent, forHTTPHeaderField: "User-Agent")
         
-        let (data, urlResponse) = try await URLSession.shared.data(for: request, delegate: nil)
+        let (data, urlResponse) = try await URLSession.shared.asyncData(for: request, delegate: nil)
         
         guard let response = urlResponse as? HTTPURLResponse else { throw SolarEdgeAPIError.response }
         
@@ -438,7 +441,7 @@ public extension SolarEdgeMonitoringAPI {
         var request = URLRequest(url: url)
         request.addValue(userAgent, forHTTPHeaderField: "User-Agent")
         
-        let (data, urlResponse) = try await URLSession.shared.data(for: request, delegate: nil)
+        let (data, urlResponse) = try await URLSession.shared.asyncData(for: request, delegate: nil)
         
         guard let response = urlResponse as? HTTPURLResponse else { throw SolarEdgeAPIError.response }
         
@@ -488,7 +491,7 @@ public extension SolarEdgeMonitoringAPI {
         var request = URLRequest(url: url)
         request.addValue(userAgent, forHTTPHeaderField: "User-Agent")
         
-        let (data, urlResponse) = try await URLSession.shared.data(for: request, delegate: nil)
+        let (data, urlResponse) = try await URLSession.shared.asyncData(for: request, delegate: nil)
         
         guard let response = urlResponse as? HTTPURLResponse else { throw SolarEdgeAPIError.response }
         
@@ -536,7 +539,7 @@ public extension SolarEdgeMonitoringAPI {
         var request = URLRequest(url: url)
         request.addValue(userAgent, forHTTPHeaderField: "User-Agent")
         
-        let (data, urlResponse) = try await URLSession.shared.data(for: request, delegate: nil)
+        let (data, urlResponse) = try await URLSession.shared.asyncData(for: request, delegate: nil)
         
         guard let response = urlResponse as? HTTPURLResponse else { throw SolarEdgeAPIError.response }
         
@@ -574,7 +577,7 @@ public extension SolarEdgeMonitoringAPI {
         var request = URLRequest(url: url)
         request.addValue(userAgent, forHTTPHeaderField: "User-Agent")
         
-        let (data, urlResponse) = try await URLSession.shared.data(for: request, delegate: nil)
+        let (data, urlResponse) = try await URLSession.shared.asyncData(for: request, delegate: nil)
         
         guard let response = urlResponse as? HTTPURLResponse else { throw SolarEdgeAPIError.response }
         
@@ -620,7 +623,7 @@ public extension SolarEdgeMonitoringAPI {
         var request = URLRequest(url: url)
         request.addValue(userAgent, forHTTPHeaderField: "User-Agent")
         
-        let (data, urlResponse) = try await URLSession.shared.data(for: request, delegate: nil)
+        let (data, urlResponse) = try await URLSession.shared.asyncData(for: request, delegate: nil)
         
         guard let response = urlResponse as? HTTPURLResponse else { throw SolarEdgeAPIError.response }
         
@@ -662,7 +665,7 @@ public extension SolarEdgeMonitoringAPI {
         var request = URLRequest(url: url)
         request.addValue(userAgent, forHTTPHeaderField: "User-Agent")
         
-        let (data, urlResponse) = try await URLSession.shared.data(for: request, delegate: nil)
+        let (data, urlResponse) = try await URLSession.shared.asyncData(for: request, delegate: nil)
         
         guard let response = urlResponse as? HTTPURLResponse else { throw SolarEdgeAPIError.response }
         
@@ -705,7 +708,7 @@ public extension SolarEdgeMonitoringAPI {
         var request = URLRequest(url: url)
         request.addValue(userAgent, forHTTPHeaderField: "User-Agent")
         
-        let (data, urlResponse) = try await URLSession.shared.data(for: request, delegate: nil)
+        let (data, urlResponse) = try await URLSession.shared.asyncData(for: request, delegate: nil)
         
         guard let response = urlResponse as? HTTPURLResponse else { throw SolarEdgeAPIError.response }
         
@@ -748,7 +751,7 @@ public extension SolarEdgeMonitoringAPI {
         var request = URLRequest(url: url)
         request.addValue(userAgent, forHTTPHeaderField: "User-Agent")
         
-        let (data, urlResponse) = try await URLSession.shared.data(for: request, delegate: nil)
+        let (data, urlResponse) = try await URLSession.shared.asyncData(for: request, delegate: nil)
         
         guard let response = urlResponse as? HTTPURLResponse else { throw SolarEdgeAPIError.response }
         

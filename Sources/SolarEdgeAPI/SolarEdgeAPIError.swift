@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
 
 /// A list of all the errors which can occour when using this API
 public enum SolarEdgeAPIError: Error, CustomStringConvertible {
