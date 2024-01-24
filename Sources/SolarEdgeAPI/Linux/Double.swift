@@ -12,7 +12,7 @@ import Foundation
 /// This extension adds the `formattedd()` function for Linux,
 extension Double {
     func formatted() -> String {
-        String(format: "%f", self)
+        String(format: "%.2f", self)
     }
 }
 
