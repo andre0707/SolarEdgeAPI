@@ -144,22 +144,59 @@ extension SEMEnergyDetail {
 extension SEMEnergyDetail {
     /// The total purchased value, if available
     public var purchasedTotalValueDescription: String? {
-        purchasedTotalValue?.formatted()
+#if os(Linux)
+        return format(value: purchasedTotalValue)
+#else
+        guard let purchasedTotalValue else { return nil }
+        return MeasurementFormatter().string(from: Measurement(value: purchasedTotalValue, unit: Unit(symbol: unit)))
+#endif
     }
     /// The total feed in value, if available
     public var feedInTotalValueDescription: String? {
-        feedInTotalValue?.formatted()
+#if os(Linux)
+        return format(value: feedInTotalValue)
+#else
+        guard let feedInTotalValue else { return nil }
+        return MeasurementFormatter().string(from: Measurement(value: feedInTotalValue, unit: Unit(symbol: unit)))
+#endif
     }
     /// The total self consumption value, if available
     public var selfConsumptionTotalValueDescription: String? {
-        selfConsumptionTotalValue?.formatted()
+#if os(Linux)
+        return format(value: selfConsumptionTotalValue)
+#else
+        guard let selfConsumptionTotalValue else { return nil }
+        return MeasurementFormatter().string(from: Measurement(value: selfConsumptionTotalValue, unit: Unit(symbol: unit)))
+#endif
     }
     /// The total production value, if available
     public var productionTotalValueDescription: String? {
-        productionTotalValue?.formatted()
+#if os(Linux)
+        return format(value: productionTotalValue)
+#else
+        guard let productionTotalValue else { return nil }
+        return MeasurementFormatter().string(from: Measurement(value: productionTotalValue, unit: Unit(symbol: unit)))
+#endif
     }
     /// The total consumption value, if available
     public var consumptionTotalValueDescription: String? {
-        consumptionTotalValue?.formatted()
+#if os(Linux)
+        return format(value: consumptionTotalValue)
+#else
+        guard let consumptionTotalValue else { return nil }
+        return MeasurementFormatter().string(from: Measurement(value: consumptionTotalValue, unit: Unit(symbol: unit)))
+#endif
     }
 }
+
+#if os(Linux)
+extension SEMEnergyDetail {
+    private func format(value: Double?) -> String? {
+        guard let value else { return nil }
+        
+        let unit = Unit(symbol: self.unit)
+        if unit.symbol == "Wh" { return String(format: "%.2fk%@", energy / 1000, unit.symbol) }
+        return String(format: "%.2f%@", energy, unit.symbol)
+    }
+}
+#endif
