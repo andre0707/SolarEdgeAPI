@@ -195,8 +195,8 @@ extension SEMEnergyDetail {
         guard let value else { return nil }
         
         let unit = Unit(symbol: self.unit)
-        if unit.symbol == "Wh" { return String(format: "%.2fk%@", energy / 1000, unit.symbol) }
-        return String(format: "%.2f%@", energy, unit.symbol)
+        if unit.symbol == "Wh" { return String(format: "%.2fk%@", value / 1000, unit.symbol) }
+        return String(format: "%.2f%@", value, unit.symbol)
     }
 }
 #endif
