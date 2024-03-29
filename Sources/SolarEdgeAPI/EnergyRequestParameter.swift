@@ -24,4 +24,11 @@ public struct EnergyRequestParameter {
             URLQueryItem(name: "timeUnit", value: timeUnit.rawValue),
         ]
     }
+    
+    /// Initialisation
+    public init(startDate: Date, endDate: Date, timeUnit: TimeUnit) {
+        self.startDate = startDate
+        self.endDate = endDate
+        self.timeUnit = timeUnit
+    }
 }

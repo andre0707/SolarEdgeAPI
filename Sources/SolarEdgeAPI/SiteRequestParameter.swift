@@ -65,4 +65,14 @@ public struct SiteRequestParameter {
         
         return queryItems.isEmpty ? nil : queryItems
     }
+    
+    /// Initialisation
+    public init(size: Int?, startIndex: Int?, searchText: String?, sortProperty: SortProperty?, sortOrder: SortOrder?, status: SiteStatus?) {
+        self.size = size
+        self.startIndex = startIndex
+        self.searchText = searchText
+        self.sortProperty = sortProperty
+        self.sortOrder = sortOrder
+        self.status = status
+    }
 }
